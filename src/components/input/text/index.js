@@ -61,8 +61,9 @@ class InputText extends Component {
         const value = formatter(rawValue);
         const pattern = error ? 'hasError' : null; //add pattern to overide mdl error style when displaying an focus error.
         const inputProps = {...otherProps, value, id: name, onChange: this._handleInputChange, pattern};
+        const mdlClasses = `mdl-textfield mdl-js-textfield ${error ? 'is-invalid' : ''}`;
         return (
-            <div className='mdl-textfield mdl-js-textfield' data-focus='input-text' ref='inputText' style={style}>
+            <div className={mdlClasses} data-focus='input-text' ref='inputText' style={style}>
                 <input className='mdl-textfield__input' ref='htmlInput' {...inputProps} />
                 <label className='mdl-textfield__label' htmlFor={name}>{this.i18n(placeholder)}</label>
                 {error && <span className='mdl-textfield__error'>{error}</span>}
